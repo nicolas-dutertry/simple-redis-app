@@ -1,8 +1,12 @@
 const http = require('http');
 const Redis = require('ioredis');
+
+const sentinelHost = process.env.SENTINEL_HOST || 'redis-sentinel';
+const sentinelPort = parseInt(process.env.SENTINEL_PORT || '26379');
+const redisMasterName = parseInt(process.env.REDIS_MASTER_NAME || 'mymaster');
 const redisClient = new Redis({
-    sentinels: [{ host: 'sentinel', port: 26379 }],
-    name: 'mymaster'
+    sentinels: [{ host: sentinelHost, port: sentinelPort }],
+    name: redisMasterName
 });
 
 redisClient.on("error", function(err) {
