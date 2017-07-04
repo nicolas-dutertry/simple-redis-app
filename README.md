@@ -1,6 +1,6 @@
 # simple-redis-app
 
-A simple node app for testing Redis high availability with Redis Sentinel.
+A simple node app for testing Redis high availability with [Redis Sentinel](https://redis.io/topics/sentinel).
 
 Each time a request is received, a counter is incremented in Redis and the counter's value is returned.
 
